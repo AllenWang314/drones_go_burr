@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "components/Button";
+import WorkflowItem from "components/workflow-item";
 import {useState} from "react";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Workflow.module.css";
@@ -24,15 +25,14 @@ export default function Workflow() {
     return <div>Step 3: Doing even more stuff</div>;
   };
 
-  const doneComponent = () => {
-    return <div>Done</div>;
-  };
-
   const generateBody = (step) => {
-      if (step <= 1) return uploadComponent()
-      else if (step == 2) return searchComponent() 
-      else if (step == 3) return mapComponent() 
-      return doneComponent()
+      return (
+        <div className={styles.workflowStep}>
+          <WorkflowItem name={'Upload'} />
+          <WorkflowItem name={'Search'} />
+          <WorkflowItem name={'Map'} />
+        </div>
+      )
   }
 
   return (
