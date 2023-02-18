@@ -1,0 +1,27 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6rem;
+    min-height: 100vh;
+    font-family: sans-serif;
+  }
+  
+  .navbar {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 100px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.workflow {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

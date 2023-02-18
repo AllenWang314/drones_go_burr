@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import Button from 'components/Button'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 
@@ -16,28 +17,31 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.center}>
+        <div className={styles.navbar}>
           <Image
             className={styles.logo}
             src="/next.svg"
             alt="Next.js Logo"
             width={180}
             height={37}
-            priority
           />
+          <Link href="workflow">
+          <Button text="Try it out!"/>
+          </Link>
         </div>
-
-        <Link href="/team"><h2 className={inter.className}>
-              Our team <span>-&gt;</span>
-            </h2></Link>
-
-        <Link href="/workflows/roles">
-          <a>
-            <h2 className={inter.className}>
-              Enter <span>-&gt;</span>
-            </h2>
-          </a>
-        </Link>
+        <div className={styles.splash}>
+          <div className={styles.splashContent}>
+            <h1>Automated Workflows for Drone Data Management</h1>
+            <div>Automated Workflows for Drone Data Management Ally makes drone data management simple, giving you easy access to automated workflows for your drone data. Drag-and-drop tasks into a custom workflow so you can focus on saving lives and leave the rest to us.</div>
+          </div>
+          <Image
+            className={styles.logo}
+            src="/next.svg"
+            alt="Next.js Logo"
+            width={180}
+            height={37}
+          /> 
+        </div>
       </main>
     </>
   )
