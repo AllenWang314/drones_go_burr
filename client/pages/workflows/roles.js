@@ -11,10 +11,10 @@ export default function Roles() {
         </h1>
         <h2>
             <ul>
-                <li><Link href="/">Search for ____</Link></li>
-                <li><Link href="/">See change over time</Link></li>
-                <li><Link href="/">Preventative analytics</Link></li>
-                <li><Link href="/">Disaster management</Link></li>
+                <li><Link href="/workflows/create-workflow">Search for ____</Link></li>
+                <li><Link href="/workflows/create-workflow">See change over time</Link></li>
+                <li><Link href="/workflows/create-workflow">Preventative analytics</Link></li>
+                <li><Link href="/workflows/create-workflow">Disaster management</Link></li>
             </ul>
         </h2>
       </>

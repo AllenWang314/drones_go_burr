@@ -130,6 +130,29 @@
   z-index: -1;
 }
 
+.mainGrid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+.column {
+  width: 32vw;
+  display: flex;
+  flex-direction: column;
+  border: 5px solid grey;
+  overflow: hidden;
+}
+
+.workflowItem {
+  width: 200px;
+  height: 90px;
+  padding: 0.5em;
+  float: left;
+  margin: 10px 0px 0px 0;
+}
+
 /* Conic Gradient Animation */
 .thirteen::before {
   animation: 6s rotate linear infinite;
