@@ -1,42 +1,33 @@
-import {useState} from 'react'
-import Button from 'components/Button'
+import { useState } from 'react';
+import Select from 'react-select';
 
 const searchInputs = [
-    "person",
-    "collapsed building",
-    "electrical lines",
-    "trees"
+    { value: "person", label: "Person"},
+    { value: "collapsed building", label: "Collapsed building"},
+    { value: "electrical lines", label: "Electrical lines"},
+    { value: "trees", label: "Trees"}
 ]
 
 export default function SearchButton(props) {
-    const [invalid, setInvalid] = useState(false);
-    const [searchInput, setSearchInput] = useState("");
-
-    const handleChange = (e) => {
-        e.preventDefault();
-        setSearchInput(e.target.value);
-    };
-
-    const filterTarget = () => {
-        searchInputs.filter(userInput => {
-            return userInput.includes(searchInput)
-        })
-    }
-
-    const filteredQueries = filterTarget().map(query => (
-        <li>{query}</li>
-    ))
-
     return (
         <div>
-            <input
-                type="text"
-                placeholder="Search here"
-                onChange={handleChange}
-                value={searchInput} />
-            <ul>
-                {invalid ? filteredQueries : null}
-            </ul>
+            <Select 
+                options={searchInputs} 
+                onChange={(option) => props.setSearchInput(option.value)}
+                theme={(theme) => ({
+                    ...theme,
+                    colors: {
+                      ...theme.colors,
+                      primary: '#A9B8F7',
+                    },
+                  })}
+                styles={{
+                    option: (baseStyles) => ({
+                        ...baseStyles,
+                        color: 'black'
+                      }),
+                }}
+            />
         </div>
     );
 }

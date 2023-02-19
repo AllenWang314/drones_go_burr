@@ -13,4 +13,4 @@ class ProjectSerializer(serializers.ModelSerializer):
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
-        fields = ['id', 'created', 's3_link', 'project']
+        fields = ['id', 'created', 's3_link', 'project', 'description']
