@@ -18,7 +18,7 @@ export default function SearchButton(props) {
     };
 
     const filterTarget = () => {
-        return searchInputs.filter(userInput => {
+        searchInputs.filter(userInput => {
             return userInput.includes(searchInput)
         })
     }
