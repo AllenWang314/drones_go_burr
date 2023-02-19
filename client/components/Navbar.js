@@ -19,7 +19,7 @@ export default function Navbar() {
         height={75}
       />
     </Link>
-    <Link href="/workflow">
+    <Link href="/projects">
       <div className={styles["navbar-link"]}>Demo</div>
     </Link>
   </div>;
