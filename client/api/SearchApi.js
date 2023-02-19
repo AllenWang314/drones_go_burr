@@ -1,6 +1,6 @@
 import Request from "./Request";
 
-export default class EstimatorApi {
+export default class SearchApi {
   static postSearch(searchStr) {
     return new Request({
       url: "/api/search",
