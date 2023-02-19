@@ -39,9 +39,12 @@ export default function Workflow() {
     <>
       <main className={styles.main}>
         <div className={styles.navbar}>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&family=Open+Sans&display=swap" rel="stylesheet"/>
           <Image
             className={styles.logo}
-            src="/next.svg"
+            src="/ally_logo.svg"
             alt="Next.js Logo"
             width={180}
             height={37}
@@ -52,6 +55,7 @@ export default function Workflow() {
         </div>
         <div></div>
         <div className={styles.workflow}>
+        <button type="button" className={styles.block}>Upload Drone Footage</button>
           <h1>Earthquake Relief Workflow</h1>
           {generateBody(currentStep)}
           <Button onClick={() => {setCurrentStep(currentStep+1)}} text="Next Step"/>

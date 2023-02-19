@@ -5,7 +5,9 @@
     align-items: center;
     padding: 6rem;
     min-height: 100vh;
-    font-family: sans-serif;
+    font-family: 'Manrope', sans-serif;
+    background-image: linear-gradient(to bottom right, #A9B8F7, #4A569D);
+    color: white;
   }
   
   .navbar {
@@ -24,4 +26,18 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.block {
+  display: block;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: white;
+  color: #333333;
+  text-align: left;
+  /* text-decoration: none; */
+  padding: 20px 45px;
+  width: 100%;
+  border-radius: 12px;
 }
