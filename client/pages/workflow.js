@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "components/Button";
 import UploadButton from "components/UploadButton";
-import SearchButton from "components/SearchButton";
+import Search from "components/Search";
 import WorkflowItem from "components/workflow-item";
 import {useState} from "react";
 import { Inter } from "@next/font/google";
@@ -45,7 +45,7 @@ export default function Workflow() {
           <h1>Earthquake Relief Workflow</h1>
             <UploadButton/>
             {/* <UploadButton style={"opacity=1.0"}/> */}
-            {currentStep >= 2?  <SearchButton /> : null }
+            {currentStep >= 2?  <Search /> : null }
             <Button onClick={() => {setCurrentStep(currentStep+1)}} text="Next Step"/>
         </div>
       </main>
