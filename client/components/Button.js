@@ -4,12 +4,12 @@ import classNames from 'classnames'
 export default function Button(props) {
 
     return (
-      <button
+      <div
         {...props}
-        className={classNames(styles["button"], props.className ?? null)}
+        className={classNames(styles["button"], styles[props.className] ?? null)}
         onClick={props.onClick}
       >
         {props.text}
-      </button>
+      </div>
     );
   }

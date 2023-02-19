@@ -8,9 +8,9 @@
   font-family: 'Manrope', sans-serif;
   background-image: linear-gradient(to bottom right, #A9B8F7, #4A569D);
   color: white;
-  animation: fadeInAnimation ease 1s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+  /* animation: fadeInAnimation ease 1s; */
+  /* animation-iteration-count: 1;
+  animation-fill-mode: forwards; */
 }
 
 @keyframes fadeInAnimation {
