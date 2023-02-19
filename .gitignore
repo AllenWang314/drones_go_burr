@@ -3,3 +3,5 @@ settings.py
 __pycache__/*
 __pycache__
 server/server/settings.py
+env/*
+get-pip.py

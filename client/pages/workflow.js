@@ -21,11 +21,6 @@ export default function Workflow() {
 
   const [currentStep, setCurrentStep] = useState(1);
 
-  // const handleClick = (e) => {
-  //   e.preventDefault();
-  //   setCurrentStep(currentStep + 1);
-  // }
-
   return (
     <>
       <h1>Earthquake Relief Workflow</h1>
