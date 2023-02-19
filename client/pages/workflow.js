@@ -8,6 +8,8 @@ import WorkflowItem from "components/workflow-item";
 import {useState} from "react";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Workflow.module.css";
+import Navbar from '@/components/Navbar'
+
 
 const inter = Inter({ subsets: ["latin"] });
 const workflow = [
@@ -27,18 +29,7 @@ export default function Workflow() {
   return (
     <>
       <main className={styles.main}>
-        <div className={styles.navbar}>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&family=Open+Sans&display=swap" rel="stylesheet"/>
-          <Image
-            className={styles.logo}
-            src="/ally_logo.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-          />
-        </div>
+        <Navbar /> 
         <div></div>
         <div className={styles.workflow}>
         <button type="button" className={styles.block}>Upload Drone Footage</button>
