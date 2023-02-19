@@ -2,6 +2,7 @@ import SearchButton from "./SearchButton";
 import { useState, useEffect } from "react";
 import Image from 'next/image';
 import SearchApi from "../api/SearchApi";
+import toast from "react-hot-toast";
 
 export default function Search() {
   const [searchInput, setSearchInput] = useState("");
@@ -13,11 +14,18 @@ export default function Search() {
 
   useEffect(() => {
     if (searchInput.length !== 0) {
-      SearchApi.postSearch(searchInput).then((res) => {
-        console.log(res);
+      const searchPromise = SearchApi.postSearch(searchInput);
+      toast.promise(searchPromise, {
+        loading: "Searching query",
+        success: "Found images",
+        error: "Could not find images, please try again"
+      });
+
+      searchPromise.then((res) => {
+        console.log(res.data);
       }).catch((err) => {
         console.log(err);
-      })
+      });
     }
   }, [searchInput])
 
