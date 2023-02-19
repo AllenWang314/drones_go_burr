@@ -1,9 +1,9 @@
 import axios from "axios";
-import { AxiosRequestConfig } from "axios";
+import type { AxiosRequestConfig } from "axios";
 
 // Acts purely as a wrapper for Axios
 class Request {
-	constructor(config) {
+	constructor(config: AxiosRequestConfig) {
 		config.baseURL = process.env.NEXT_PUBLIC_SERVER_URL;
 		config.timeout = 100000;
 
@@ -15,12 +15,12 @@ class Request {
 			.catch((response) => this.catch(response));
 	}
 
-	then(callback) {
+	then(callback: any): Request {
 		this.then = callback;
 		return this;
 	}
 
-	catch(callback) {
+	catch(callback: any): Request {
 		this.catch = callback;
 		return this;
 	}
