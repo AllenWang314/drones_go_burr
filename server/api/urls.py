@@ -1,7 +1,11 @@
-from django.contrib import admin
-from django.urls import include, path
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('polls/', include('polls.urls')),
-    path('admin/', admin.site.urls),
+    path('ping/', views.ping),
+    path('project/', views.ProjectView.as_view()),
+    path('project/<str:pk>/', views.ProjectDetailView.as_view()),
+    path('image/', views.ImageView.as_view()),
+    path('image/<str:pk>/', views.ImageDetailView.as_view()),
+    path('search/', views.search)
 ]
