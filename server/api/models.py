@@ -18,4 +18,4 @@ class Image(models.Model):
     s3_link = models.CharField(max_length=400)
     embedding = ArrayField(models.FloatField(null=False, blank=True), blank=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, null=False, blank=False)
-    description = models.CharField(max_length=400) 
+    description = models.CharField(max_length=400, blank=True, null=True) 
