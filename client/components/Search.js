@@ -3,28 +3,26 @@ import { useState, useEffect } from "react";
 import Image from 'next/image';
 import SearchApi from "../api/SearchApi";
 import toast from "react-hot-toast";
+import Loading from "./Loading";
 
 export default function Search() {
   const [searchInput, setSearchInput] = useState("");
-
-  const imgs = [
-    "https://treehacksdrip.s3.amazonaws.com/cat.png", 
-    "https://treehacksdrip.s3.amazonaws.com/cat.png"
-  ]
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (searchInput.length !== 0) {
-      const searchPromise = SearchApi.postSearch(searchInput);
-      toast.promise(searchPromise, {
-        loading: "Searching query",
-        success: "Found images",
-        error: "Could not find images, please try again"
-      });
+      const searchToast = toast.loading(`Querying for images of ${searchInput}`);
+      setLoading(true);
 
-      searchPromise.then((res) => {
-        console.log(res.data);
+      SearchApi.postSearch(searchInput).then((res) => {
+        setLoading(false);
+        setImages(res.data.map((img) => img.s3_link))
+        toast.success("Found images!", { id: searchToast });
       }).catch((err) => {
-        console.log(err);
+        setLoading(false);
+        setImages([]);
+        toast.error("Could not find images, please try again", { id: searchToast });
       });
     }
   }, [searchInput])
@@ -33,18 +31,17 @@ export default function Search() {
     <>
       <h1>Searching</h1>
       <SearchButton setSearchInput={setSearchInput} />
-      {searchInput}
-
-      {imgs.map((img, ind) => {
-        return <img 
-          src={img} 
-          width={200}
-          key={ind}
-        />
-      })}
-
-      {/* <img src="https://treehacksdrip.s3.amazonaws.com/cat.png" */}
-      {/* /> */}
+      {
+        loading ? <Loading />
+          : images.length > 0 ?
+            images.slice(0, 10).map((img, ind) => {
+              return <img
+                src={img}
+                width={200}
+                key={ind}
+              />
+            }) : <></>
+      }
     </>
   );
 }
