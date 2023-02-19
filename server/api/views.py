@@ -24,12 +24,15 @@ def search(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class ProjectView(mixins.CreateModelMixin, generics.GenericAPIView):
+class ProjectView(mixins.CreateModelMixin, mixins.ListAPIView, generics.GenericAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
+    
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
 
 class ProjectDetailView(mixins.RetrieveModelMixin, generics.GenericAPIView):
     queryset = Project.objects.all()
