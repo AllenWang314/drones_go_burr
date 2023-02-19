@@ -2,9 +2,15 @@ import {useState} from 'react'
 import Button from 'components/Button'
 
 export default function UploadButton() {
-    return (
-        <div className="button-wrapper">
-            <Button text="Upload"/>
-        </div>
+    const [invalid, setInvalid] = useState(false);
+    // const handlePress = (e) => {
+    //     e.preventDefault();
+    //     setInvalid(!invalid);
+    // };
+    console.log(`invalid: ${invalid}`)
+
+    if (invalid) return null;
+    else return (
+        <Button text="Upload" onClick={setInvalid(!invalid)}/>
     )
 }
