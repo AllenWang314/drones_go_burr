@@ -8,30 +8,34 @@ const searchInputs = [
     "trees"
 ]
 
-export default function SearchButton() {
+export default function SearchButton(props) {
+    const [invalid, setInvalid] = useState(false);
     const [searchInput, setSearchInput] = useState("");
 
     const handleChange = (e) => {
         e.preventDefault();
         setSearchInput(e.target.value);
     };
-      
-    if (searchInput.length > 0) {
-        searchInputs.filter((input) => {
-            return input.includes(searchInput);
-        });
+
+    const filterTarget = () => {
+        return searchInputs.filter(userInput => {
+            return userInput.includes(searchInput)
+        })
     }
+
+    const filteredQueries = filterTarget().map(query => (
+        <li>{query}</li>
+    ))
 
     return (
         <div>
-            <Search
-                searchInput={searchInput}
-                setSearchInput={setSearchInput}
-            />
+            <input
+                type="text"
+                placeholder="Search here"
+                onChange={handleChange}
+                value={searchInput} />
             <ul>
-                {searchInputs.map(query => (
-                    <li>{query}</li>
-                ))}
+                {invalid ? filteredQueries : null}
             </ul>
         </div>
     );
