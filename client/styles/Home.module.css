@@ -3,9 +3,12 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
+  padding: 12rem;
   min-height: 100vh;
-  font-family: sans-serif;
+  font-family: 'Manrope', sans-serif;
+  background-image: linear-gradient(to bottom right, #A9B8F7, #4A569D);
+  color: white;
+
 }
 
 .navbar {

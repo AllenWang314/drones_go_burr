@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "components/Button";
+import WorkflowItem from "components/workflow-item";
 import {useState} from "react";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Workflow.module.css";
@@ -24,24 +25,26 @@ export default function Workflow() {
     return <div>Step 3: Doing even more stuff</div>;
   };
 
-  const doneComponent = () => {
-    return <div>Done</div>;
-  };
-
   const generateBody = (step) => {
-      if (step <= 1) return uploadComponent()
-      else if (step == 2) return searchComponent() 
-      else if (step == 3) return mapComponent() 
-      return doneComponent()
+      return (
+        <div className={styles.workflowStep}>
+          <WorkflowItem name={'Upload'} />
+          <WorkflowItem name={'Search'} />
+          <WorkflowItem name={'Map'} />
+        </div>
+      )
   }
 
   return (
     <>
       <main className={styles.main}>
         <div className={styles.navbar}>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&family=Open+Sans&display=swap" rel="stylesheet"/>
           <Image
             className={styles.logo}
-            src="/next.svg"
+            src="/ally_logo.svg"
             alt="Next.js Logo"
             width={180}
             height={37}
@@ -52,6 +55,7 @@ export default function Workflow() {
         </div>
         <div></div>
         <div className={styles.workflow}>
+        <button type="button" className={styles.block}>Upload Drone Footage</button>
           <h1>Earthquake Relief Workflow</h1>
           {generateBody(currentStep)}
           <Button onClick={() => {setCurrentStep(currentStep+1)}} text="Next Step"/>
