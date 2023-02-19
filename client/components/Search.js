@@ -4,6 +4,7 @@ import Image from 'next/image';
 import SearchApi from "../api/SearchApi";
 import toast from "react-hot-toast";
 import Loading from "./Loading";
+import styles from '@/styles/Home.module.css'
 
 export default function Search() {
   const [searchInput, setSearchInput] = useState("");
@@ -27,6 +28,26 @@ export default function Search() {
     }
   }, [searchInput])
 
+  const displayImages = () => {
+    var displayImages = []
+    if (images.length > 0) {
+      displayImages = images.slice(0, 10)
+    }
+    return (
+      <div className={styles.Gallery}>
+        {displayImages.map((image, index) => {
+          <img
+            src={img}
+            width={200}
+            key={ind}
+          />
+        })}
+      </div>
+    )
+  }
+
+  
+
   return (
     <>
       <h1>Searching</h1>
@@ -40,6 +61,7 @@ export default function Search() {
                 width={200}
                 key={ind}
               />
+
             }) : <></>
       }
     </>

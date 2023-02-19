@@ -42,3 +42,29 @@
   width: 100%;
   border-radius: 12px;
 }
+
+/* Display image results */
+.gallery {
+  --s: 150px; /* controls the size */
+  --g: 10px;  /* controls the gap */
+  --f: 1.5; /* controls the scale factor */
+
+  display: grid;
+  gap: var(--g);
+  width: calc(3*var(--s) + 2*var(--g)); /* 3 times the size plus 2 times the gap */
+  aspect-ratio: 1;
+  grid-template-columns: repeat(3, auto);
+}
+
+.gallery > img {
+  width: 0;
+  height: 0;
+  min-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+}
+
+.gallery img:hover{
+  width:  calc(var(--s) * var(--f));
+  height: calc(var(--s) * var(--f));
+}
