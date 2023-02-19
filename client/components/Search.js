@@ -5,7 +5,7 @@ import SearchApi from "../api/SearchApi";
 import toast from "react-hot-toast";
 import Loading from "./Loading";
 
-export default function Search() {
+export default function Search(props) {
   const [searchInput, setSearchInput] = useState("");
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -15,7 +15,7 @@ export default function Search() {
       const searchToast = toast.loading(`Querying for images of ${searchInput}`);
       setLoading(true);
 
-      SearchApi.postSearch(searchInput).then((res) => {
+      SearchApi.postSearch(searchInput, props.projectId).then((res) => {
         setLoading(false);
         setImages(res.data.map((img) => img.s3_link))
         toast.success("Found images!", { id: searchToast });

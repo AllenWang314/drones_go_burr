@@ -12,12 +12,12 @@ var albumBucketName = "treehacksdrip";
 var bucketRegion = 'us-east-1';
 var IdentityPoolId = 'us-east-1:e7ba7d5b-e247-43f9-b6d8-0bcfb3fdc4ad';
 
-export default function UploadButton() {
+export default function UploadButton(props) {
     const [invalid, setInvalid] = useState(false);
 
     const postS3 = (photokey) => {
         console.log(photokey);
-        const uploadPromise = SearchApi.postImage(photokey);
+        const uploadPromise = SearchApi.postImage(photokey, props.projectId);
     }
 
     AWS.config.update({
