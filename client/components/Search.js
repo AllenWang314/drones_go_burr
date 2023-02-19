@@ -1,10 +1,9 @@
 import SearchButton from "./SearchButton";
 import { useState, useEffect } from "react";
-import Image from 'next/image';
 import SearchApi from "../api/SearchApi";
 import toast from "react-hot-toast";
 import Loading from "./Loading";
-import styles from '@/styles/Home.module.css'
+import styles from '@/styles/Workflow.module.css'
 
 export default function Search(props) {
   const [searchInput, setSearchInput] = useState("");
@@ -29,17 +28,16 @@ export default function Search(props) {
   }, [searchInput])
 
   const displayImages = () => {
-    var displayImages = []
-    if (images.length > 0) {
-      displayImages = images.slice(0, 10)
-    }
+    let ondisplay = images.slice(0, 9)
+    console.log(ondisplay)
+
     return (
-      <div className={styles.Gallery}>
-        {displayImages.map((image, index) => {
-          <img
-            src={img}
+      <div className={styles.gallery}>
+        {ondisplay.map((image, index) => {
+          return <img
+            src={image}
             width={200}
-            key={ind}
+            key={index}
           />
         })}
       </div>
@@ -55,14 +53,7 @@ export default function Search(props) {
       {
         loading ? <Loading />
           : images.length > 0 ?
-            images.slice(0, 10).map((img, ind) => {
-              return <img
-                src={img}
-                width={200}
-                key={ind}
-              />
-
-            }) : <></>
+            displayImages() : <></>
       }
     </>
   );
