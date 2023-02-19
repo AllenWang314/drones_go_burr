@@ -21,7 +21,7 @@ export default function Home() {
           <Button
             text="Try it out!"
             onClick={() => {
-              router.push("/workflow");
+              router.push("/projects");
             }}
           />
         </div>
